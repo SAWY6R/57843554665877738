@@ -3,7 +3,7 @@ getgenv().settings = {
     Hitbox = 'Head',
     Keybind = Enum.KeyCode.LeftShift,
     FOVRadius = 100,
-    Smoothness = 1
+    Smoothness = 1,
     PredictionAmount = 0.2 -- Amount of prediction in seconds
 }
 
