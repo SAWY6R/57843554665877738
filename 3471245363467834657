@@ -77,7 +77,7 @@ RunService.PostSimulation:Connect(function()
         if UserInputService:IsKeyDown(settings.Keybind) and settings.Enabled then
             local TargetPartPosition = CurrentCamera:WorldToViewportPoint(PredictPosition(Storage.Target))
             local RelativeMousePosition = Vector2.new(TargetPartPosition.X, TargetPartPosition.Y) - MousePosition
-            mousemoverel(RelativeMousePosition.X * _G.Smoothness, RelativeMousePosition.Y * _G.Smoothness)
+            mousemoverel(RelativeMousePosition.X * settings.Smoothness, RelativeMousePosition.Y * settings.Smoothness)
         end
     end
 end)
