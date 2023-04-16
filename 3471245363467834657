@@ -1,12 +1,12 @@
-
-_G.Smoothness = 1
 getgenv().settings = {
     Enabled = true,
     Hitbox = 'Head',
     Keybind = Enum.KeyCode.LeftShift,
     FOVRadius = 100,
+    Smoothness = 1
     PredictionAmount = 0.2 -- Amount of prediction in seconds
 }
+
 
 local Players = game:GetService('Players')
 local RunService = game:GetService('RunService')
@@ -34,7 +34,7 @@ end
 function PredictPosition(player)
     -- Predicts the future position of the player based on their current velocity and position
     local humanoid = player.Character:FindFirstChildOfClass('Humanoid')
-    local rootPart = player.Character:FindFirstChild('HumanoidRootPart')
+    local rootPart = player.Character:FindFirstChild(getgenv().settings.Hitbox)
     if not humanoid or not rootPart then
         return rootPart.Position
     end
@@ -53,7 +53,7 @@ RunService.PostSimulation:Connect(function()
 
     for i, player in next, Players:GetChildren() do
         local Humanoid = player.Character and player.Character:FindFirstChildWhichIsA('Humanoid')
-        local HumanoidRootPart = player.Character and player.Character:FindFirstChild('HumanoidRootPart')
+        local HumanoidRootPart = player.Character and player.Character:FindFirstChild(getgenv().settings.Hitbox)
         if not Humanoid or not HumanoidRootPart or player == LocalPlayer then
             continue
         end
